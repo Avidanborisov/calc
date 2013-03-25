@@ -28,7 +28,7 @@ double infix(AQueue* expr)
 						Operator new = t->token.op;
 						Operator top = tk->token.op;
 
-						if (new.preced - top.preced - (int)new.assoc <= 0)
+						if (new.preced - top.preced + (int)new.assoc <= 0)
 						{
 							output->enqueue(output, operators->pop(operators));
 							continue;
