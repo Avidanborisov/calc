@@ -6,7 +6,7 @@
 #include "Token.h"
 #include "Error.h"
 
-static int execOperator(AStack* values, Operator op);
+static void execOperator(AStack* values, Operator op);
 
 double postfix(AQueue* expr)
 {
@@ -17,8 +17,6 @@ double postfix(AQueue* expr)
 
 	while ((t = expr->dequeue(expr)) != NULL)
 	{
-		int ok = 1;
-
 		switch (t->type)
 		{
 			case value:
@@ -26,7 +24,7 @@ double postfix(AQueue* expr)
 				break;
 
 			case operator:
-				ok = execOperator(values, t->token.op);
+				execOperator(values, t->token.op);
 				break;
 
 			default:
@@ -34,11 +32,6 @@ double postfix(AQueue* expr)
 		}
 
 		free(t);
-
-		if (!ok)
-		{
-			break;
-		}
 	}
 
 	if (values->size != 1)
@@ -59,7 +52,7 @@ double postfix(AQueue* expr)
 	return result;
 }
 
-static int execOperator(AStack* values, Operator op)
+static void execOperator(AStack* values, Operator op)
 {
 	double result;
 	double* v1;
@@ -72,7 +65,7 @@ static int execOperator(AStack* values, Operator op)
 
 			if (v1 == NULL)
 			{
-				return 0;
+				return;
 			}
 
 			result = op.f.f1(*v1);
@@ -86,7 +79,7 @@ static int execOperator(AStack* values, Operator op)
 			if (v1 == NULL || v2 == NULL)
 			{
 				free(v2);
-				return 0;
+				return;
 			}
 
 			result = op.f.f2(*v1, *v2);
@@ -96,5 +89,4 @@ static int execOperator(AStack* values, Operator op)
 	}
 
 	values->push(values, AStruct->ADup(result));
-	return 1;
 }
