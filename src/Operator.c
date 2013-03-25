@@ -84,10 +84,13 @@ Operator getOperator(char** s)
 
 	switch (in)
 	{
-		#define op(symbol, preced, assoc, args, f)           \
-			case _(symbol):                                  \
-				*s += sizeof(#symbol) - 3;                   \
-				return (Operator){ preced, assoc, args, f }; \
+		#define op(symbol, preced, assoc, args, f)                \
+		    case _(symbol):                                       \
+		    {                                                     \
+		          Operator operator = { preced, assoc, args, f }; \
+		          *s += sizeof(#symbol) - 3;                      \
+		          return operator;                                \
+		    }                                                     \
 
 		OperatorTable();
 	}
