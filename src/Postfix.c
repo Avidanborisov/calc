@@ -32,6 +32,11 @@ double postfix(AQueue* expr)
 		}
 
 		free(t);
+
+		if (values->top(values) == NULL)
+		{
+			break;
+		}
 	}
 
 	if (values->size != 1)
