@@ -79,7 +79,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.439646426" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.1218007300" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.925269392" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.misc.other.559716927" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -Wall -std=gnu99 -fmessage-length=0 -Wno-multichar" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.559716927" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -Wall -fmessage-length=0 -Wno-multichar" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.286320289" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.429470376" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release">
