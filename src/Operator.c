@@ -95,5 +95,8 @@ Operator getOperator(char** s)
 		OperatorTable();
 	}
 
-	return (Operator){ len, -1, 0, { 0 } }; /* No matching operator */
+	{
+		Operator operator = { len, -1, 0, { 0 } }; /* No matching operator */
+		return operator;
+	}
 }
