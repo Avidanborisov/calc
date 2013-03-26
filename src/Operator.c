@@ -34,10 +34,16 @@ OP_FUNC_UNARY_CAST  (~ , bnot)
 OP_FUNC_UNARY       (++, inc)
 OP_FUNC_UNARY       (--, dec)
 
+#define isParenthesis(c) (c == '(' || c == ')')
+
 static size_t oplen(const char* s)
 {
 	const char* ss = s;
-	while (ispunct(*s) || isalpha(*s)) { s++; }
+
+	while ((ispunct(*s) || isalpha(*s)) && !isParenthesis(*s))
+	{
+		s++;
+	}
 
 	return s - ss;
 }
